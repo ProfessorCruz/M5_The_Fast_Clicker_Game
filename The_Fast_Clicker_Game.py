@@ -98,6 +98,9 @@ while True:
 
     # Tratando cliques nos cartões
     for event in pygame.event.get():
+        if event.type == pygame.QUIT:  # Quando o botão "X" da janela é clicado
+            pygame.quit()
+            exit()
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             x, y = event.pos
             for i in range(num_cards):
