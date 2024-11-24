@@ -72,7 +72,7 @@ score.set_text('0', 40, DARK_BLUE)
 score.draw(0, 0)
 
 for i in range(num_cards):
-    new_card = Label(x, 170, 70, 100, YELLOW)
+    new_card = Label(x, 170, 90, 100, YELLOW)
     new_card.outline(BLUE, 10)
     new_card.set_text('CLICK', 26)
     cards.append(new_card)
@@ -96,7 +96,7 @@ while True:
     else:
         wait -= 1
 
-    # Tratando cliques nos cartões
+    # Tratando cliques
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # Quando o botão "X" da janela é clicado
             pygame.quit()
@@ -122,7 +122,14 @@ while True:
         win = Label(0, 0, 500, 500, LIGHT_RED)
         win.set_text("Time is up!!!", 60, DARK_BLUE)
         win.draw(110, 180)
-        break
+        pygame.display.update()
+
+        # Mantendo a tela de derrota aberta
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    exit()
 
     if int(new_time) - int(cur_time) == 1:  # Verifica diferença de 1 segundo entre os tempos
         timer.set_text(str(int(new_time - start_time)), 40, DARK_BLUE)
@@ -136,9 +143,16 @@ while True:
         result_time = Label(90, 230, 250, 250, LIGHT_GREEN)
         result_time.set_text("Time to complete: " + str(int(new_time - start_time)) + " sec", 40, DARK_BLUE)
         result_time.draw(0, 0)
-        break
+        pygame.display.update()
+
+        # Mantendo a tela de vitória aberta
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    exit()
 
     pygame.display.update()
     clock.tick(40)
 
-pygame.display.update()
+    pygame.display.update()
