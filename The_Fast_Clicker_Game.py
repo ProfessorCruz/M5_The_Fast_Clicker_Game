@@ -163,7 +163,7 @@ while True:
         # Exibe o tempo total
         result_time = Label(0, 0, 800, 100, bg_color)
         result_time.set_text(f"Time to complete: {int(new_time - start_time)} sec", 40, DARK_BLUE)
-        result_time.draw(text_x, base_y + 2 * line_spacing)
+        result_time.draw(text_x-50, base_y + 2 * line_spacing) #-50 to center
 
         pygame.display.update()
 
