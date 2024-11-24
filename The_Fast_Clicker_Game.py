@@ -6,7 +6,7 @@ pygame.init()
 
 # Criando a janela do programa
 back = (200, 255, 255)  # Cor de fundo
-mw = pygame.display.set_mode((500, 500))  # Janela principal
+mw = pygame.display.set_mode((800, 600))  # Janela principal
 mw.fill(back)
 clock = pygame.time.Clock()
 
