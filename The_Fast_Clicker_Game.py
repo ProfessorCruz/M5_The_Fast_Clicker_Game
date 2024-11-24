@@ -126,9 +126,15 @@ while True:
     new_time = time.time()
 
     if new_time - start_time >= 11:
-        win = Label(0, 0, 500, 500, LIGHT_RED)
+        win = Label(0, 0, 800, 600, LIGHT_RED)
         win.set_text("Time is up!!!", 60, DARK_BLUE)
-        win.draw(110, 180)
+        win.draw(220, 180)
+
+        # Exibir pontuação final na derrota
+        final_score = Label(0, 0, 800, 600, LIGHT_RED)
+        final_score.set_text(f"Final Score: {points}", 50, DARK_BLUE)
+        final_score.draw(260, 260)
+
         pygame.display.update()
 
         # Mantendo a tela de derrota aberta
@@ -138,18 +144,20 @@ while True:
                     pygame.quit()
                     exit()
 
-    if int(new_time) - int(cur_time) == 1:  # Verifica diferença de 1 segundo entre os tempos
-        timer.set_text(str(int(new_time - start_time)), 40, DARK_BLUE)
-        timer.draw(0, 0)
-        cur_time = new_time
-
     if points >= 5:
-        win = Label(0, 0, 500, 500, LIGHT_GREEN)
+        win = Label(0, 0, 800, 600, LIGHT_GREEN)
         win.set_text("You won!!!", 60, DARK_BLUE)
-        win.draw(140, 180)
-        result_time = Label(90, 230, 250, 250, LIGHT_GREEN)
-        result_time.set_text("Time to complete: " + str(int(new_time - start_time)) + " sec", 40, DARK_BLUE)
+        win.draw(220, 180)
+
+        # Exibir pontuação final na vitória
+        final_score = Label(0, 0, 800, 600, LIGHT_GREEN)
+        final_score.set_text(f"Final Score: {points}", 50, DARK_BLUE)
+        final_score.draw(260, 260)
+
+        result_time = Label(90, 300, 620, 50, LIGHT_GREEN)
+        result_time.set_text(f"Time to complete: {int(new_time - start_time)} sec", 40, DARK_BLUE)
         result_time.draw(0, 0)
+
         pygame.display.update()
 
         # Mantendo a tela de vitória aberta
@@ -158,6 +166,7 @@ while True:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     exit()
+
 
     pygame.display.update()
     clock.tick(40)
