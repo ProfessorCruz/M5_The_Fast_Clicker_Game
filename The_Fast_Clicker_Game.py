@@ -66,7 +66,7 @@ time_text = Label(0, 0, 50, 50, back)
 time_text.set_text('Time:', 40, DARK_BLUE)
 time_text.draw(20, 20)
 
-timer = Label(50, 55, 50, 40, back)
+timer = Label(150, 21, 50, 40, back)  # Ajustei o posicionamento para não se sobrepor com a Label "Time:"
 timer.set_text('0', 40, DARK_BLUE)
 timer.draw(0, 0)
 
@@ -74,7 +74,7 @@ score_text = Label(380, 0, 50, 50, back)
 score_text.set_text('Count:', 45, DARK_BLUE)
 score_text.draw(20, 20)
 
-score = Label(430, 55, 50, 40, back)
+score = Label(560, 24, 50, 40, back)  # Ajustei o posicionamento para não se sobrepor com a Label "Count:"
 score.set_text('0', 40, DARK_BLUE)
 score.draw(0, 0)
 
@@ -122,6 +122,11 @@ while True:
                     score.set_text(str(points), 40, DARK_BLUE)
                     score.draw(0, 0)
 
+    # Atualizando o tempo na interface
+    elapsed_time = int(time.time() - start_time)  # Tempo decorrido
+    timer.set_text(str(elapsed_time), 40, DARK_BLUE)
+    timer.draw(0, 0)
+
     # Verificando vitória ou derrota
     new_time = time.time()
 
@@ -163,7 +168,6 @@ while True:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     exit()
-
 
     pygame.display.update()
     clock.tick(40)
