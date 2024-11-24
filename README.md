@@ -51,7 +51,7 @@ Este projeto foi desenvolvido como parte do curso da Algorithmics Programming Sc
 Contribuições são bem-vindas, sinta-se à vontade para fazer um fork deste repositório e propor melhorias!
 
 ### Licença
-Este projeto é licenciado sob a MIT License.
+Este projeto é licenciado sob a Creative Commons License.
 
 ### Agradecimentos
 Agradecemos a Algorithmics Programming School pela base do projeto, que serviu como ponto de partida para este desenvolvimento.
