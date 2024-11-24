@@ -49,7 +49,14 @@ LIGHT_RED = (250, 128, 114)
 # Configuração inicial
 cards = []
 num_cards = 4
-x = 70
+card_width = 90
+card_height = 100
+spacing = 20  # Espaço entre os cartões
+
+# Calculando a largura total ocupada pelos cartões e espaços
+total_width = num_cards * card_width + (num_cards - 1) * spacing
+start_x = (800 - total_width) // 2  # Centralizar horizontalmente na janela de 800px
+start_y = (600 - card_height) // 2  # Centralizar verticalmente na janela de 600px
 
 start_time = time.time()
 cur_time = start_time
@@ -71,12 +78,12 @@ score = Label(430, 55, 50, 40, back)
 score.set_text('0', 40, DARK_BLUE)
 score.draw(0, 0)
 
+# Criando os cartões
 for i in range(num_cards):
-    new_card = Label(x, 170, 90, 100, YELLOW)
+    new_card = Label(start_x + i * (card_width + spacing), start_y, card_width, card_height, YELLOW)
     new_card.outline(BLUE, 10)
     new_card.set_text('CLICK', 26)
     cards.append(new_card)
-    x += 100
 
 wait = 0
 points = 0
@@ -155,4 +162,4 @@ while True:
     pygame.display.update()
     clock.tick(40)
 
-    pygame.display.update()
+pygame.display.update()
